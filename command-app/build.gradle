@@ -33,11 +33,9 @@ dependencyManagement {
     }
 }
 
-bootJar.enabled = false
-jar.enabled = true
-
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter')
+    implementation project(':core-command')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
