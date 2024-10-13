@@ -1,4 +1,4 @@
 rootProject.name = 'springboot-coding-style'
 include 'core-command'
-include 'command-app'
+include 'command-api-app'
 
