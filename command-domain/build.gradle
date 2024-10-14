@@ -1,11 +1,16 @@
 plugins {
+    id 'java-library'
     id 'targetcoders.java-conventions'
     id 'org.springframework.boot' version '3.3.4'
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
 dependencies {
+    api ('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    implementation ('com.h2database:h2:2.3.232')
     implementation('org.springframework.boot:spring-boot-starter')
+
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 

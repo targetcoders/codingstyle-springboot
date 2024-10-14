@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class CommandProcessorBeanFinder {
+public class CommandProcessorFactoryBeanFinder {
 
   private final ApplicationContext context;
 
-  public CommandProcessorFactory getBean(String symbol) {
+  public CommandProcessorFactory getFactoryBean(String symbol) {
     log.info("find {}CommandProcessor", symbol);
     try {
       return (CommandProcessorFactory) context.getBean(symbol + "CommandProcessorFactory");
