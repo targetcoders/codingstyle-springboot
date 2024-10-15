@@ -13,14 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class CommandRunner {
 
-  private final CommandProcessorFactoryBeanFinder factoryBeanFinder;
+  private final CommandProcessorBeanFinder factoryBeanFinder;
   private final CommandHistoryService commandHistoryService;
 
   public String run(String symbol, String data) {
     log.info("symbol={}, data={}", symbol, data);
 
-    CommandProcessorFactory commandProcessorFactory = factoryBeanFinder.getFactoryBean(symbol);
-    String result = commandProcessorFactory.process(data);
+    CommandProcessor commandProcessor = factoryBeanFinder.getFactoryBean(symbol);
+    String result = commandProcessor.process(data);
     commandHistoryService.save(CommandHistory.create(symbol, data, result));
 
     log.info("result={}", result);

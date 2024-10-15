@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public abstract class CommandProcessorFactory {
+public abstract class CommandProcessor {
 
   public String process(String data) {
     Command command = createCommand(data);
-    log.info("run {}CommandProcessor data={}", command.name(), data);
+    log.info("processing {}CommandProcessor data={}", command.name(), data);
     return command.run();
   }
 
